@@ -1,5 +1,5 @@
 # Use the official OpenJDK 17 image as the base image
-FROM openjdk:17-jdk-alpine
+FROM eclipse-temurin:17-jdk-alpine
 
 # Set metadata
 LABEL maintainer="trainwithshubham@gmail.com"
