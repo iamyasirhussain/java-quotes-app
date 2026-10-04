@@ -20,3 +20,4 @@ Your time is limited, so don’t waste it living someone else’s life. – Stev
 Stay hungry, stay foolish. – Steve Jobs  
 
 Deployed by Argo CD. – Yasir
+Auto-sync is live. – Yasir
