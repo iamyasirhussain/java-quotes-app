@@ -21,4 +21,3 @@ Stay hungry, stay foolish. – Steve Jobs
 
 Deployed by Argo CD. – Yasir
 Auto-sync is live. – Yasir
-BUGGY QUOTE: this release is broken. – Oops
