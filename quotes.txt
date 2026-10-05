@@ -18,7 +18,6 @@ You are never too old to set another goal or to dream a new dream. – C.S. Lewi
 Difficulties in life are intended to make us better, not bitter. – Dan Reeves  
 Your time is limited, so don’t waste it living someone else’s life. – Steve Jobs  
 Stay hungry, stay foolish. – Steve Jobs  
-
 Deployed by Argo CD. – Yasir
 Auto-sync is live. – Yasir
 Poll SCM works. – Yasir

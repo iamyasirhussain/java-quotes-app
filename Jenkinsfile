@@ -10,6 +10,24 @@ pipeline {
                 sh 'docker build -t $IMAGE:$TAG .'
             }
         }
+        stage('Test') {
+            steps {
+                sh '''
+                    if grep -qE '^[[:space:]]*$' quotes.txt; then
+                        echo "FAIL: quotes.txt has blank lines"; exit 1
+                    fi
+                    if grep -q '"' quotes.txt; then
+                        echo "FAIL: quotes.txt contains a double quote"; exit 1
+                    fi
+                    docker rm -f quotes-test 2>/dev/null || true
+                    docker run -d --name quotes-test $IMAGE:$TAG
+                    sleep 5
+                    RESPONSE=$(docker exec quotes-test wget -qO- http://localhost:8000/) || { docker logs quotes-test; exit 1; }
+                    echo "Response: $RESPONSE"
+                    echo "$RESPONSE" | grep -Eq '^[{]"quote": ".+"[}]$' || { echo "FAIL: unexpected response"; exit 1; }
+                '''
+            }
+        }
         stage('Push to Docker Hub') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DH_USER', passwordVariable: 'DH_PASS')]) {
@@ -42,6 +60,7 @@ pipeline {
     post {
         always {
             sh 'rm -rf k8s-repo'
+            sh 'docker rm -f quotes-test || true'
         }
     }
 }
