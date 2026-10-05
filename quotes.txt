@@ -22,4 +22,3 @@ Deployed by Argo CD. – Yasir
 Auto-sync is live. – Yasir
 Poll SCM works. – Yasir
 When in fear, remember who the Raziq is - Yasir
-
